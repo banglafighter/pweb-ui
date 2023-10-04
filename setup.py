@@ -18,13 +18,13 @@ def get_dependencies():
 
 
 setup(
-    name='pweb-form',
+    name='pweb-ui',
     version='1.0.0',
-    url='https://github.com/problemfighter/pweb-form',
+    url='https://github.com/problemfighter/pweb-ui',
     license='Apache 2.0',
     author='Problem Fighter',
     author_email='problemfighter.com@gmail.com',
-    description='Form submission, validation, Process data for saving, Update and other type operation',
+    description='Its a starter of pweb, here will be basic authentication module, and rest system',
     long_description=README,
     long_description_content_type='text/markdown',
     packages=find_packages(),

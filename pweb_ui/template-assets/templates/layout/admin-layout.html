@@ -1,12 +1,11 @@
-
 {% extends "layout/base.html" %}
-{% block base_head %}
-     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/admin-base.css') }}">
+{% block pweb_ui_base_head %}
+    <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/admin-base.css') }}">
 {% endblock %}
 
-{% block content %}
+{% block pweb_ui_content %}
     <header>
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-flex align-items-center justify-content-between">
                 <!-- ============ Branding ============ -->
                 <div class="header-content">
@@ -81,19 +80,19 @@
         </div>
     </header>
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <!-- ============ Left Site ============ -->
                 <div class="col-lg-2">
                     <div class="navbar-vertical-content">
                         <ul class="navbar-nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for("form_controller.list") }}">
+                                <a class="nav-link" href="{{ url_for("operator_controller.list") }}">
                                     <div class="d-flex align-items-center">
                                             <span class="nav-link-icon">
                                                <i class="fa-solid fa-boxes-stacked"></i>
                                             </span>
-                                        <span class="nav-link-text ps-1">Member</span>
+                                        <span class="nav-link-text ps-1">Operator</span>
                                     </div>
                                 </a>
                             </li>

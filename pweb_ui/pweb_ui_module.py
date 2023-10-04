@@ -1,6 +1,7 @@
 from pweb import PWebComponentRegister, PWebModuleDetails
 from pweb_ui.controller.auth_api_controller import auth_api_controller
 from pweb_ui.controller.auth_controller import auth_controller
+from pweb_ui.controller.operator_controller import operator_controller
 
 
 class PWebUIModule(PWebComponentRegister):
@@ -20,3 +21,4 @@ class PWebUIModule(PWebComponentRegister):
     def register_controller(self, pweb_app):
         pweb_app.register_blueprint(auth_controller)
         pweb_app.register_blueprint(auth_api_controller)
+        pweb_app.register_blueprint(operator_controller)

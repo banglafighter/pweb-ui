@@ -6,13 +6,13 @@
     <title>{% block title %}{{- pweb_app_name }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/lib/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='js/lib/confirm/jquery-confirm.min.css') }}">
-    {% block base_head %}{% endblock %}
+    {% block pweb_ui_base_head %}{% endblock %}
     <script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.js') }}"></script>
     {{- util.set_base_js()|safe }}
 </head>
 <body>
 
-{% block content %}{% endblock %}
+{% block pweb_ui_content %}{% endblock %}
 
 <script src="{{ url_for('pweb-ui.static', filename='js/lib/jquery-3.7.1.min.js') }}"></script>
 <script src="{{ url_for('pweb-ui.static', filename='js/lib/bootstrap.bundle.min.js') }}"></script>

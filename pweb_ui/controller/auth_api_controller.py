@@ -1,17 +1,11 @@
 from pweb import Blueprint
 from pweb_ui.common.pweb_ui_config import PWebUIConfig
 
-auth_api_controller: Blueprint = Blueprint("auth_api_controller", __name__)
-
-
-def init_auth_api_controller(url_prefix: str):
-    global auth_api_controller
-    auth_api_controller = Blueprint(
-        "auth_api_controller",
-        __name__,
-        url_prefix=url_prefix,
-    )
-    return auth_api_controller
+auth_api_controller: Blueprint = Blueprint(
+    "auth_api_controller",
+    __name__,
+    url_prefix=PWebUIConfig.SSR_AUTH_END_POINT,
+)
 
 
 @auth_api_controller.route(PWebUIConfig.LOGIN_END_POINT, methods=['POST'])

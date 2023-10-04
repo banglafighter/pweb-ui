@@ -1,0 +1,7 @@
+.footer-item {
+    font-size: 15px;
+}
+
+.footer-item.text-decoration-none:hover {
+    text-decoration: underline !important;
+}

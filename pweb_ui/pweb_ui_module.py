@@ -1,5 +1,6 @@
 from pweb import PWebComponentRegister, PWebModuleDetails
-from pweb_ui.common.pweb_ui_init import PWebUIInit
+from pweb_ui.controller.auth_api_controller import auth_api_controller
+from pweb_ui.controller.auth_controller import auth_controller
 
 
 class PWebUIModule(PWebComponentRegister):
@@ -11,10 +12,11 @@ class PWebUIModule(PWebComponentRegister):
         pass
 
     def run_on_start(self, pweb_app, config):
-        PWebUIInit().init(pweb_app=pweb_app, config=config)
+        pass
 
     def register_model(self, pweb_db):
         pass
 
     def register_controller(self, pweb_app):
-        pass
+        pweb_app.register_blueprint(auth_controller)
+        pweb_app.register_blueprint(auth_api_controller)

@@ -1,25 +1,20 @@
 from pweb import Blueprint
+from pweb_form_rest import ssr_ui_render
 from pweb_ui.common.pweb_ui_config import PWebUIConfig
 
-auth_controller: Blueprint = Blueprint("pweb-ui", __name__)
-
-
-def init_auth_controller(url_prefix: str):
-    global auth_controller
-    auth_controller = Blueprint(
-        "pweb-ui",
-        __name__,
-        url_prefix=url_prefix,
-        template_folder="../template-assets/templates",
-        static_folder="../template-assets/assets",
-        static_url_path="pweb-ui-assets"
-    )
-    return auth_controller
+auth_controller: Blueprint = Blueprint(
+    "pweb-ui",
+    __name__,
+    url_prefix=PWebUIConfig.SSR_AUTH_END_POINT,
+    template_folder="../template-assets/templates",
+    static_folder="../template-assets/assets",
+    static_url_path="pweb-ui-assets"
+)
 
 
 @auth_controller.route(PWebUIConfig.LOGIN_END_POINT, methods=['POST', 'GET'])
 def login():
-    pass
+    return ssr_ui_render(view_name="auth/login")
 
 
 @auth_controller.route(PWebUIConfig.LOGOUT_END_POINT, methods=['GET'])

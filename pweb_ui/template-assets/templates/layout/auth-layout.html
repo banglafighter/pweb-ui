@@ -1,0 +1,55 @@
+{% extends "layout/base.html" %}
+{% block base_head %}
+     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/auth-base.css') }}">
+     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/footer.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <main class="d-flex flex-column align-items-center justify-content-center min-vh-auth">
+        <div class="d-flex w-75 justify-content-center md-flex-column">
+
+            <!-- ============ Left Section ============ -->
+            <div class="w-100 mx-auto d-flex flex-column align-items-center justify-content-center">
+                <div class="p-3 text-max-w-fixed mx-auto">
+                    <div>
+                        <h1 class="fs-main-title">{{ pweb_app_name }}</h1>
+                        <p class="fs-medium">
+                            PWeb is an Open Source Python based Web Framework for Rapid Development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- ============ End of Left Section ============ -->
+
+            <!-- ============ Right Section ============ -->
+            <div class="w-100 mx-auto">
+                <div class="card br-card rounded-0 shadow-lg p-3 auth-max-w-fixed mx-auto mt-3">
+                    {% block auth_layout %}{% endblock %}
+                </div>
+            </div>
+            <!-- ============ End of Right Section ============ -->
+        </div>
+    </main>
+
+    <div class="footer container">
+        <div class="d-block text-center d-md-flex align-items-center justify-content-between py-3">
+            <div class="d-inline-flex">
+                <a class="text-secondary footer-item text-decoration-none me-2" href="#">Help</a>
+                <a class="text-secondary footer-item text-decoration-none me-2" href="#">Terms of Use</a>
+                <a class="text-secondary footer-item text-decoration-none me-2" href="#">Privacy Policy</a>
+            </div>
+            <div class="text-secondary footer-item">
+                Developed By
+                <strong>
+                    <a href="https://banglafighter.com/" class="text-decoration-none text-secondary footer-item"
+                       target="_blank">
+                        Bangla Fighter Engineering
+                    </a>
+                    <span class="version ms-2">v<span class="fs--1">1.0.0</span></span>
+                </strong>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -44,6 +44,24 @@
                         </div>
                     {% endif %}
 
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <div class="form-control fw-bold h-auto min-h-details">
+                                {{ data.accessType |default("", True) }}
+                            </div>
+                            <label class="details-label-fs">Access Type</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <div class="form-control fw-bold h-auto min-h-details">
+                                {{ data.status |default("", True) }}
+                            </div>
+                            <label class="details-label-fs">Status</label>
+                        </div>
+                    </div>
+
                     <div class="col-12">
                         <span class="float-end">
                             <a href="{{ url_for("operator_controller.update", id=data.id) }}" type="submit" class="btn btn-primary">Edit</a>

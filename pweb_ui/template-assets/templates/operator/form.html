@@ -25,6 +25,9 @@
 
                         {% form_input field=form.name, wrapper="mb-3 col-md-12" %}
 
+                        {% form_input field=form.accessType, wrapper="mb-3 col-md-6" %}
+                        {% form_input field=form.status, wrapper="mb-3 col-md-6" %}
+
                         {% if auth_base == "USERNAME" %}
                             {% form_input field=form.username, wrapper="mb-3 col-md-12" %}
                         {% else %}

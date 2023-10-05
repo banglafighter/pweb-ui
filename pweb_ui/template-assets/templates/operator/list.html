@@ -24,6 +24,8 @@
                                 {% else %}
                                     {% sortable_header name="email" %}
                                 {% endif %}
+                                {% sortable_header name="accessType" %}
+                                {% sortable_header name="status" %}
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -36,6 +38,8 @@
                                     {% else %}
                                         <td>{{ row.email|default("", True) }}</td>
                                     {% endif %}
+                                    <td>{{ row.accessType|default("", True) }}</td>
+                                    <td>{{ row.status|default("", True) }}</td>
                                     {% with edit=url_for("operator_controller.update", id=row.id), delete=url_for("operator_controller.delete", id=row.id), details=url_for("operator_controller.details", id=row.id) %}
                                         {% include("snippet/table-row-action.html") %}
                                     {% endwith %}

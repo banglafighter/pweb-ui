@@ -2,8 +2,13 @@
 
 {% block auth_layout %}
     <div class="text-center mb-4">
-        <h2 class="mt-2 fw-bolder text-success">Reset Success</h2>
-        <p>Please check your email/mobile to get link or code.</p>
+        {% if is_reset %}
+            <h2 class="mt-2 fw-bolder text-success">Your password has been changed.</h2>
+            <p>Please login with the new password</p>
+        {% else %}
+            <h2 class="mt-2 fw-bolder text-danger">Failed!</h2>
+            <p>Unable to change your password, Please try again later</p>
+        {% endif %}
         <a href="{{ url_for("pweb-ui.login") }}" class="btn btn-primary">Log In</a>
     </div>
 {% endblock %}

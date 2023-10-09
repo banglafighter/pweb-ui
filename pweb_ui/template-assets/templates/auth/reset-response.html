@@ -9,6 +9,6 @@
             <h2 class="mt-2 fw-bolder text-danger">Failed!</h2>
             <p>Unable to change your password, Please try again later</p>
         {% endif %}
-        <a href="{{ url_for("pweb-ui.login") }}" class="btn btn-primary">Log In</a>
+        <a href="{{ url_for("auth_controller.login") }}" class="btn btn-primary">Log In</a>
     </div>
 {% endblock %}

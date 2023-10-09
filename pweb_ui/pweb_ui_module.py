@@ -1,6 +1,9 @@
-from pweb import PWebComponentRegister, PWebModuleDetails
+from pweb import PWebComponentRegister, PWebModuleDetails, url_for
+from pweb_auth import PWebAuthRegistry
+from pweb_ui.common.pweb_ui_config import PWebUIConfig
 from pweb_ui.controller.auth_api_controller import auth_api_controller
 from pweb_ui.controller.auth_controller import auth_controller
+from pweb_ui.controller.auth_static_controller import auth_static_controller
 from pweb_ui.controller.operator_controller import operator_controller
 
 
@@ -13,12 +16,14 @@ class PWebUIModule(PWebComponentRegister):
         pass
 
     def run_on_start(self, pweb_app, config):
-        pass
+        PWebAuthRegistry.add_start_with_url_in_skip("/pweb-ui-assets")
+        PWebAuthRegistry.add_start_with_url_in_skip(PWebUIConfig.SSR_AUTH_END_POINT)
 
     def register_model(self, pweb_db):
         pass
 
     def register_controller(self, pweb_app):
+        pweb_app.register_blueprint(auth_static_controller)
         pweb_app.register_blueprint(auth_controller)
         pweb_app.register_blueprint(auth_api_controller)
         pweb_app.register_blueprint(operator_controller)

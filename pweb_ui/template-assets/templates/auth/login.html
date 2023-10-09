@@ -1,7 +1,7 @@
 {% extends "layout/pui-auth-layout.html" %}
 
 {% block auth_layout %}
-    <form class="needs-validation row g-3 " novalidate method="post" action="{{ url_for("pweb-ui.login") }}">
+    <form class="needs-validation row g-3 " novalidate method="post" action="{{ url_for("auth_controller.login") }}">
         {% if auth_base == "USERNAME" %}
             {% form_input field=form.username, wrapper="mb-3 col-md-12" %}
         {% else %}
@@ -11,7 +11,7 @@
         <div class="d-grid">
             <button type="submit" class="btn btn-primary"> Log In </button>
             <span class="mt-2 text-center">
-                <a href="{{ url_for("pweb-ui.forgot_password") }}" class="text-decoration-none">
+                <a href="{{ url_for("auth_controller.forgot_password") }}" class="text-decoration-none">
                     Forgot password?
                 </a>
             </span>

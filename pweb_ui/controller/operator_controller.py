@@ -1,7 +1,6 @@
 from flask import url_for
 from pweb import Blueprint
 from pweb_auth.service.operator_ssr_service import OperatorSSRService
-from pweb_form_rest import ssr_ui_render
 
 operator_controller: Blueprint = Blueprint(
     "operator_controller",
@@ -38,6 +37,7 @@ def details(id: int):
     return operator_ssr_service.details(view_name="operator/details", model_id=id, redirect_url=redirect_url)
 
 
+@operator_controller.route("/", methods=['GET'])
 @operator_controller.route("/list", methods=['GET'])
 def list():
     search_fields: list = ["name", "email", "username"]

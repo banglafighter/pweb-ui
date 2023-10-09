@@ -8,6 +8,7 @@ class PWebUIConfig:
     SSR_AUTH_END_POINT: str = "/auth"
 
     # End Point
+    AUTH_BASE_END_POINT: str = "/"
     LOGIN_END_POINT: str = "/login"
     LOGOUT_END_POINT: str = "/logout"
     RESET_PASS_END_POINT: str = "/reset-password"

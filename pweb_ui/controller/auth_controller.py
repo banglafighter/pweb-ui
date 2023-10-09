@@ -15,6 +15,7 @@ auth_controller: Blueprint = Blueprint(
 operator_ssr_service = OperatorSSRService()
 
 
+@auth_controller.route(PWebUIConfig.AUTH_BASE_END_POINT, methods=['GET'])
 @auth_controller.route(PWebUIConfig.LOGIN_END_POINT, methods=['POST', 'GET'])
 def login():
     success_redirect_url = url_for("pweb-ui.login")

@@ -1,5 +1,6 @@
 from pweb import PWebComponentRegister, PWebModuleDetails, url_for
 from pweb_auth import PWebAuthRegistry
+from pweb_form_rest import PWebFRConfig
 from pweb_ui.common.pweb_ui_config import PWebUIConfig
 from pweb_ui.controller.auth_api_controller import auth_api_controller
 from pweb_ui.controller.auth_controller import auth_controller
@@ -17,7 +18,12 @@ class PWebUIModule(PWebComponentRegister):
 
     def run_on_start(self, pweb_app, config):
         PWebAuthRegistry.add_start_with_url_in_skip("/pweb-ui-assets")
+        PWebAuthRegistry.add_start_with_url_in_skip(PWebUIConfig.OPERATOR_API_END_POINT)
         PWebAuthRegistry.add_start_with_url_in_skip(PWebUIConfig.SSR_AUTH_END_POINT)
+        PWebAuthRegistry.add_start_with_url_in_skip(PWebFRConfig.SWAGGER_JSON_URL)
+        PWebAuthRegistry.add_start_with_url_in_skip(PWebFRConfig.SWAGGER_UI_URL)
+        PWebAuthRegistry.add_start_with_url_in_skip(PWebFRConfig.SWAGGER_UI_ASSETS_URL)
+        PWebAuthRegistry.add_start_with_url_in_skip(PWebFRConfig.SWAGGER_UI_ASSETS_URL)
 
     def register_model(self, pweb_db):
         pass

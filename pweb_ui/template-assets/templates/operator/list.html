@@ -1,0 +1,56 @@
+{% extends "layout/pui-admin-layout.html" %}
+
+
+{% set name = "Operators" %}
+{% block title %}{{- name }}{% endblock %}
+
+{% block admin_layout %}
+    <div class="col-lg-10 mt-3">
+
+
+        {% with name=name, total=table.total, create=url_for("operator_controller.create"), reload=url_for("operator_controller.list") %}
+            {% include("snippet/table-top-action.html") %}
+        {% endwith %}
+
+        <div class="card br-card rounded-0">
+            <div class="card-body">
+                <div class="table-responsive-sm ">
+                    <table class="table table-bordered">
+                        <thead class="table-secondary">
+                            <tr>
+                                {% sortable_header name="name" %}
+                                {% if auth_base == "USERNAME" %}
+                                    {% sortable_header name="username" %}
+                                {% else %}
+                                    {% sortable_header name="email" %}
+                                {% endif %}
+                                {% sortable_header name="accessType" %}
+                                {% sortable_header name="status" %}
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in table.items %}
+                                <tr>
+                                    <td>{{ row.name|default("", True) }}</td>
+                                    {% if auth_base == "USERNAME" %}
+                                        <td>{{ row.username|default("", True) }}</td>
+                                    {% else %}
+                                        <td>{{ row.email|default("", True) }}</td>
+                                    {% endif %}
+                                    <td>{{ row.accessType|default("", True) }}</td>
+                                    <td>{{ row.status|default("", True) }}</td>
+                                    {% with edit=url_for("operator_controller.update", id=row.id), delete=url_for("operator_controller.delete", id=row.id), details=url_for("operator_controller.details", id=row.id) %}
+                                        {% include("snippet/table-row-action.html") %}
+                                    {% endwith %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% pagination current_page=table.page, total_page=table.pages %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

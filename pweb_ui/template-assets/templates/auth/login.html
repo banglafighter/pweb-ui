@@ -1,0 +1,20 @@
+{% extends "layout/pui-auth-layout.html" %}
+
+{% block auth_layout %}
+    <form class="needs-validation row g-3 " novalidate method="post" action="{{ url_for("auth_controller.login") }}">
+        {% if auth_base == "USERNAME" %}
+            {% form_input field=form.username, wrapper="mb-3 col-md-12" %}
+        {% else %}
+            {% form_input field=form.email, wrapper="mb-3 col-md-12" %}
+        {% endif %}
+        {% form_input field=form.password, wrapper="mb-3 col-md-12" %}
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary"> Log In </button>
+            <span class="mt-2 text-center">
+                <a href="{{ url_for("auth_controller.forgot_password") }}" class="text-decoration-none">
+                    Forgot password?
+                </a>
+            </span>
+        </div>
+    </form>
+{% endblock %}

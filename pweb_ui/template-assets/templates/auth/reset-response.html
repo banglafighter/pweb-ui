@@ -1,0 +1,14 @@
+{% extends "layout/pui-auth-layout.html" %}
+
+{% block auth_layout %}
+    <div class="text-center mb-4">
+        {% if is_reset %}
+            <h2 class="mt-2 fw-bolder text-success">Your password has been changed.</h2>
+            <p>Please login with the new password</p>
+        {% else %}
+            <h2 class="mt-2 fw-bolder text-danger">Failed!</h2>
+            <p>Unable to change your password, Please try again later</p>
+        {% endif %}
+        <a href="{{ url_for("auth_controller.login") }}" class="btn btn-primary">Log In</a>
+    </div>
+{% endblock %}

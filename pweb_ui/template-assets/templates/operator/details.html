@@ -1,0 +1,75 @@
+{% extends "layout/pui-admin-layout.html" %}
+
+{% block title %}Operator Details{% endblock %}
+
+{% block admin_layout %}
+    <div class="col-lg-10 mt-3">
+        <div class="card br-card rounded-0 card-t-head mb-3">
+            <div class="bg-holder d-none d-lg-block bg-left"></div>
+            <div class="card-body">
+                <div class="d-md-flex justify-content-between d-sm-block align-items-center">
+                    <div class="mb-0 heading-text">Details</div>
+                </div>
+            </div>
+        </div>
+        <div class="card br-card rounded-0">
+            <div class="card-body">
+                <div class="row form-details gy-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <div class="form-control fw-bold h-auto min-h-details">
+                                {{ data.name |default("", True) }}
+                            </div>
+                            <label class="details-label-fs">Name</label>
+                        </div>
+                    </div>
+
+                    {% if auth_base == "USERNAME" %}
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control fw-bold h-auto min-h-details">
+                                    {{ data.username |default("", True) }}
+                                </div>
+                                <label class="details-label-fs">Username</label>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control fw-bold h-auto min-h-details">
+                                    {{ data.email |default("", True) }}
+                                </div>
+                                <label class="details-label-fs">Email</label>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <div class="form-control fw-bold h-auto min-h-details">
+                                {{ data.accessType |default("", True) }}
+                            </div>
+                            <label class="details-label-fs">Access Type</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <div class="form-control fw-bold h-auto min-h-details">
+                                {{ data.status |default("", True) }}
+                            </div>
+                            <label class="details-label-fs">Status</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <span class="float-end">
+                            <a href="{{ url_for("operator_controller.update", id=data.id) }}" type="submit" class="btn btn-primary">Edit</a>
+                            <a href="{{ url_for("operator_controller.list") }}" class="btn btn-danger ms-2">Cancel</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{- pweb_app_name }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/lib/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='js/lib/confirm/jquery-confirm.min.css') }}">
+    {% block pweb_ui_base_head %}{% endblock %}
+    <script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.js') }}"></script>
+    {{- util.set_base_js()|safe }}
+</head>
+<body>
+
+{% block pweb_ui_content %}{% endblock %}
+
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/bootstrap-form-validator.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/fontawesome-all.min.js') }}"></script>
+
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/confirm/jquery-confirm.min.js') }}"></script>
+
+<script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.message.box.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.init.js') }}"></script>
+<script>
+    PWeb.messageBox.parseAndShowMessage({{- util.pweb_flashed_messages|safe }})
+</script>
+
+</body>
+</html>

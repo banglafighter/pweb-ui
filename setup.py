@@ -19,7 +19,7 @@ def get_dependencies():
 
 setup(
     name='pweb-ui',
-    version='0.0.2',
+    version='0.0.3',
     url='https://github.com/problemfighter/pweb-ui',
     license='Apache 2.0',
     author='Problem Fighter',
@@ -28,6 +28,7 @@ setup(
     long_description=README,
     long_description_content_type='text/markdown',
     packages=find_packages(),
+    package_data={'pweb_ui': ['template-assets/**/*']},
     zip_safe=False,
     include_package_data=True,
     platforms='any',

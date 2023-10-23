@@ -20,10 +20,10 @@ def get_dependencies():
 setup(
     name='pweb-ui',
     version='0.0.3',
-    url='https://github.com/problemfighter/pweb-ui',
+    url='https://github.com/banglafighter/pweb-ui',
     license='Apache 2.0',
-    author='Problem Fighter',
-    author_email='problemfighter.com@gmail.com',
+    author='Bangla Fighter',
+    author_email='banglafighter.com@gmail.com',
     description='Its a starter of pweb, here will be basic authentication module, and rest system',
     long_description=README,
     long_description_content_type='text/markdown',

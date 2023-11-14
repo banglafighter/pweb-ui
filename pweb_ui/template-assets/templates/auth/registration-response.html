@@ -1,0 +1,9 @@
+{% extends "layout/pui-auth-layout.html" %}
+
+{% block auth_layout %}
+    <div class="text-center mb-4">
+        <h2 class="mt-2 fw-bolder text-success">Reset Success</h2>
+        <p>Please check your email/mobile to get link or code.</p>
+        <a href="{{ url_for("auth_controller.login") }}" class="btn btn-primary">Log In</a>
+    </div>
+{% endblock %}

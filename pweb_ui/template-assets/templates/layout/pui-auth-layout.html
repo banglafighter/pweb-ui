@@ -15,7 +15,7 @@
                     <div>
                         <h1 class="fs-main-title">{{ pweb_app_name }}</h1>
                         <p class="fs-medium">
-                            PWeb is an Open Source Python based Web Framework for Rapid Development.
+                            {{ CONNECT_MESSAGE }}
                         </p>
                     </div>
                 </div>
@@ -42,11 +42,11 @@
             <div class="text-secondary footer-item">
                 Developed By
                 <strong>
-                    <a href="https://banglafighter.com/" class="text-decoration-none text-secondary footer-item"
+                    <a href="{{DEVELOPED_BY_LINK}}" class="text-decoration-none text-secondary footer-item"
                        target="_blank">
-                        Bangla Fighter Engineering
+                        {{DEVELOPED_BY}}
                     </a>
-                    <span class="version ms-2">v<span class="fs--1">1.0.0</span></span>
+                    <span class="version ms-2">{{APP_VERSION}}</span>
                 </strong>
             </div>
         </div>

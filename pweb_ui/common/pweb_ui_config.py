@@ -14,3 +14,13 @@ class PWebUIConfig:
     RESET_PASS_END_POINT: str = "/reset-password"
     FORGOT_PASS_END_POINT: str = "/forgot-password"
     RENEW_TOKEN_END_POINT: str = "/renew-token"
+    REGISTRATION_END_POINT: str = "/registration"
+
+    # Messages
+    REGISTRATION_DISABLE_MESSAGE: str = "Registration is disabled."
+    CONNECT_MESSAGE: str = "PWeb is an Open Source Python based Web Framework for Rapid Development."
+    DEVELOPED_BY: str = "Bangla Fighter Engineering"
+    DEVELOPED_BY_LINK: str = "https://banglafighter.com"
+    APP_VERSION: str = "v1.0.0"
+    ENABLE_REGISTRATION: bool = False
+    REGISTRATION_ACTION: str = "auth_controller.login"

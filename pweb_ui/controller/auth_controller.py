@@ -1,3 +1,4 @@
+from flask import redirect, flash
 from pweb import Blueprint, url_for
 from pweb_auth.service.operator_ssr_service import OperatorSSRService
 from pweb_ui.common.pweb_ui_config import PWebUIConfig
@@ -33,3 +34,11 @@ def reset_password(token: str):
 @auth_controller.route(PWebUIConfig.FORGOT_PASS_END_POINT, methods=['POST', 'GET'])
 def forgot_password():
     return operator_ssr_service.forgot_password(view_name="auth/forgot-password", forgot_response_view="auth/forgot-response")
+
+
+@auth_controller.route(PWebUIConfig.REGISTRATION_END_POINT, methods=['POST', 'GET'])
+def registration():
+    if not PWebUIConfig.ENABLE_REGISTRATION:
+        flash(PWebUIConfig.REGISTRATION_DISABLE_MESSAGE, "error")
+        return redirect(url_for("auth_controller.login"))
+    return operator_ssr_service.forgot_password(view_name="auth/registration", forgot_response_view="auth/registration-response")

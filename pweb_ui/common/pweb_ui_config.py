@@ -10,6 +10,7 @@ class PWebUIConfig:
     # End Point
     AUTH_BASE_END_POINT: str = "/"
     LOGIN_END_POINT: str = "/login"
+    LOGIN_SUCCESS_END_POINT: str = None
     LOGOUT_END_POINT: str = "/logout"
     RESET_PASS_END_POINT: str = "/reset-password"
     FORGOT_PASS_END_POINT: str = "/forgot-password"

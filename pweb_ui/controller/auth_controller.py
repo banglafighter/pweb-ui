@@ -17,6 +17,8 @@ operator_ssr_service = OperatorSSRService()
 @auth_controller.route(PWebUIConfig.LOGIN_END_POINT, methods=['POST', 'GET'])
 def login():
     success_redirect_url = url_for("operator_controller.list")
+    if PWebUIConfig.LOGIN_SUCCESS_END_POINT:
+        success_redirect_url = PWebUIConfig.LOGIN_SUCCESS_END_POINT
     return operator_ssr_service.login(view_name="auth/login", success_redirect_url=success_redirect_url)
 
 

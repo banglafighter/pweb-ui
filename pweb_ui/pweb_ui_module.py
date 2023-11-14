@@ -1,5 +1,5 @@
 from ppy_common import ObjectHelper
-from pweb import PWebComponentRegister, PWebModuleDetails, url_for
+from pweb import PWebComponentRegister, PWebModuleDetails
 import pweb_ui
 from pweb_auth import PWebAuthRegistry
 from pweb_form_rest import PWebFRConfig

@@ -1,7 +1,8 @@
 {% extends "layout/pui-auth-layout.html" %}
 
 {% block auth_layout %}
-    <form class="needs-validation row g-3 " novalidate method="post" action="{{ url_for("auth_controller.login") }}">
+    <form class="needs-validation row g-3 " novalidate method="post" action="{{ url_for("auth_controller.registration") }}">
+        {% form_input field=form.name, wrapper="mb-3 col-md-12" %}
         {% if auth_base == "USERNAME" %}
             {% form_input field=form.username, wrapper="mb-3 col-md-12" %}
         {% else %}
@@ -9,20 +10,16 @@
         {% endif %}
         {% form_input field=form.password, wrapper="mb-3 col-md-12" %}
         <div class="d-grid">
-            <button type="submit" class="btn btn-primary"> Log In </button>
-            <span class="mt-2 text-center">
-                <a href="{{ url_for("auth_controller.forgot_password") }}" class="text-decoration-none">
-                    Forgot password?
-                </a>
-            </span>
+            <button type="submit" class="btn btn-primary">Registration</button>
+            <hr class="mt-3 mb-0">
         </div>
-        {% if ENABLE_REGISTRATION %}
-            <hr class="mt-3 mb-1">
-            <div class="text-center">
-                <a href="#" class="btn btn-success">
-                    Register
-                </a>
-            </div>
-        {% endif %}
+        <span class="text-center mt-2">
+            Already have an account?
+        </span>
+        <div class="text-center">
+            <a href="{{ url_for("auth_controller.login") }}" class="btn btn-success">
+                Login
+            </a>
+        </div>
     </form>
 {% endblock %}

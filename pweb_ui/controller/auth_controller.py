@@ -41,4 +41,4 @@ def registration():
     if not PWebUIConfig.ENABLE_REGISTRATION:
         flash(PWebUIConfig.REGISTRATION_DISABLE_MESSAGE, "error")
         return redirect(url_for("auth_controller.login"))
-    return operator_ssr_service.forgot_password(view_name="auth/registration", forgot_response_view="auth/registration-response")
+    return operator_ssr_service.registration(view_name="auth/registration", response_view="auth/registration-response")

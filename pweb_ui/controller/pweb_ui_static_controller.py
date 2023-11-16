@@ -1,6 +1,6 @@
 from pweb import Blueprint
 
-auth_static_controller: Blueprint = Blueprint(
+pweb_ui_static_controller: Blueprint = Blueprint(
     "pweb-ui",
     __name__,
     url_prefix="/",

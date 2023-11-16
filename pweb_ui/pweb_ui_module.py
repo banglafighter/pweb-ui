@@ -7,8 +7,8 @@ from pweb_ssr import PWebJinjaUtil
 from pweb_ui.common.pweb_ui_config import PWebUIConfig
 from pweb_ui.controller.auth_api_controller import auth_api_controller
 from pweb_ui.controller.auth_controller import auth_controller
-from pweb_ui.controller.auth_static_controller import auth_static_controller
 from pweb_ui.controller.operator_controller import operator_controller
+from pweb_ui.controller.pweb_ui_static_controller import pweb_ui_static_controller
 
 
 class PWebUIModule(PWebComponentRegister):
@@ -44,7 +44,7 @@ class PWebUIModule(PWebComponentRegister):
         pass
 
     def register_controller(self, pweb_app):
-        pweb_app.register_blueprint(auth_static_controller)
+        pweb_app.register_blueprint(pweb_ui_static_controller)
         pweb_app.register_blueprint(auth_controller)
         pweb_app.register_blueprint(auth_api_controller)
         pweb_app.register_blueprint(operator_controller)

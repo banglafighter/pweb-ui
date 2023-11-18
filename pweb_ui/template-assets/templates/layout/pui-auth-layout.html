@@ -40,14 +40,15 @@
                 <a class="text-secondary footer-item text-decoration-none me-2" href="#">Privacy Policy</a>
             </div>
             <div class="text-secondary footer-item">
-                Developed By
-                <strong>
-                    <a href="{{DEVELOPED_BY_LINK}}" class="text-decoration-none text-secondary footer-item"
-                       target="_blank">
-                        {{DEVELOPED_BY}}
-                    </a>
-                    <span class="version ms-2">{{APP_VERSION}}</span>
-                </strong>
+                {% if DEVELOPED_BY %}
+                    Developed By
+                    <strong>
+                        <a href="{{ DEVELOPED_BY_LINK }}" class="text-decoration-none text-secondary footer-item" target="_blank">
+                            {{ DEVELOPED_BY }}
+                        </a>
+                    </strong>
+                {% endif %}
+                <strong><span class="version ms-2">{{ APP_VERSION }}</span></strong>
             </div>
         </div>
     </div>

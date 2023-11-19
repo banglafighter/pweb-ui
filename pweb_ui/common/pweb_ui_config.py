@@ -17,6 +17,9 @@ class PWebUIConfig:
     RENEW_TOKEN_END_POINT: str = "/renew-token"
     REGISTRATION_END_POINT: str = "/registration"
 
+    # Navigation
+    LEFT_NAVIGATION: list = []  # It will be a list of map [{"name": "Student", "url": "/student", "icon": "font-awsome-icon-class"}]
+
     # Messages
     REGISTRATION_DISABLE_MESSAGE: str = "Registration is disabled."
     CONNECT_MESSAGE: str = "PWeb is an Open Source Python based Web Framework for Rapid Development."

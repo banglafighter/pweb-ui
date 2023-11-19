@@ -23,6 +23,11 @@ class PWebUIModule(PWebComponentRegister):
         }
         PWebJinjaUtil.register_global_variable(pweb_app, variables)
 
+        navigation = []
+        if PWebUIConfig.LEFT_NAVIGATION:
+            navigation = PWebUIConfig.LEFT_NAVIGATION
+        PWebJinjaUtil.register_global_variable(pweb_app, {"navigation": navigation})
+
     def app_details(self) -> PWebModuleDetails:
         return PWebModuleDetails(system_name="pweb-ui", display_name="PWeb UI Module")
 

@@ -1,7 +1,6 @@
 PWeb.ajax = (function () {
 
     return {
-
         call: function (settings) {
             var defaults = {
                 url: null,
@@ -21,7 +20,7 @@ PWeb.ajax = (function () {
                 jQuery.extend(defaults, settings);
             }
 
-            jQuery.ajax({
+            let ajaxCall = jQuery.ajax({
                 url: defaults.url,
                 type: defaults.method,
                 dataType: defaults.dataType,
@@ -32,20 +31,20 @@ PWeb.ajax = (function () {
                     if (defaults.beforeSend !== undefined) {
                         defaults.beforeSend();
                     }
-                },
-
-                success: function (content) {
-                    if (defaults.success) {
-                        defaults.success(content);
-                    }
-                },
-
-                complete: function () {
-                    if (defaults.complete) {
-                        defaults.complete();
-                    }
                 }
             });
+
+            ajaxCall.done(function (content) {
+                if (defaults.success) {
+                    defaults.success(content);
+                }
+            })
+
+            ajaxCall.always(function (content) {
+                if (defaults.complete) {
+                    defaults.complete();
+                }
+            })
         }
     }
 }());

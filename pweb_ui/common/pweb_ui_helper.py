@@ -1,7 +1,9 @@
+from pweb_auth.security.pweb_session import PWebSession
 from pweb_form_rest import PWebSSRUIHelper
 from pweb_auth.security.pweb_ssr_auth import PWebSSRAuth
 from pweb import url_for
 from pweb_auth.service.operator_ssr_service import OperatorSSRService
+from pweb_ui.common.pweb_ui_sys import PWebUISys
 
 
 class AuthSessionHelper:
@@ -33,6 +35,10 @@ class AuthSessionHelper:
     @property
     def profile_photo(self):
         return self.get_profile_photo()
+
+    @property
+    def navigation(self):
+        return PWebSession.get(PWebUISys.PWEB_NAV_NAME, [])
 
 
 class PWebUIHelper(PWebSSRUIHelper):

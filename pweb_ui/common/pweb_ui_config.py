@@ -19,6 +19,10 @@ class PWebUIConfig:
 
     # Navigation
     LEFT_NAVIGATION: list = []  # It will be a list of map [{"name": "Student", "url": "/student", "icon": "font-awsome-icon-class"}]
+    ENABLE_DEFAULT_LEFT_NAV: bool = True
+    LOGO_URL: str = "/pweb-ui-assets/img/logo.png"
+    EXTRA_CSS: list = []
+    EXTRA_JS: list = []
 
     # Messages
     REGISTRATION_DISABLE_MESSAGE: str = "Registration is disabled."

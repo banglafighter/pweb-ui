@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{- pweb_app_name }}{% endblock %}</title>
+
     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='css/lib/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='js/lib/confirm/jquery-confirm.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='js/lib/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='js/lib/select2/select2-bootstrap-5-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('pweb-ui.static', filename='js/lib/datepicker/tempus-dominus.min.css') }}">
+
     {% block pweb_ui_base_head %}{% endblock %}
+
+    {% for css_link in EXTRA_CSS  %}
+    	<link rel="stylesheet" href="{{ css_link }}">
+    {% endfor %}
+
+
     <script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.js') }}"></script>
     {{- util.set_base_js()|safe }}
 </head>
@@ -20,6 +31,11 @@
 <script src="{{ url_for('pweb-ui.static', filename='js/lib/fontawesome-all.min.js') }}"></script>
 
 <script src="{{ url_for('pweb-ui.static', filename='js/lib/confirm/jquery-confirm.min.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/select2/select2.min.js') }}"></script>
+
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/datepicker/popper.min.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/datepicker/tempus-dominus.min.js') }}"></script>
+<script src="{{ url_for('pweb-ui.static', filename='js/lib/datepicker/tempus-jquery-provider.js') }}"></script>
 
 <script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.message.box.js') }}"></script>
 <script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.init.js') }}"></script>
@@ -27,5 +43,10 @@
     PWeb.messageBox.parseAndShowMessage({{- util.pweb_flashed_messages|safe }})
 </script>
 {% block pweb_ui_base_bottom %}{% endblock %}
+
+{% for js_link in EXTRA_JS %}
+    <script src="{{ js_link }}"></script>
+{% endfor %}
+
 </body>
 </html>

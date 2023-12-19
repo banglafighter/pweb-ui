@@ -5,6 +5,7 @@ from pweb_auth import PWebAuthRegistry
 from pweb_form_rest import PWebFRConfig
 from pweb_ssr import PWebJinjaUtil
 from pweb_ui.common.pweb_ui_config import PWebUIConfig
+from pweb_ui.common.pweb_ui_sys import PWebUISys
 from pweb_ui.controller.auth_api_controller import auth_api_controller
 from pweb_ui.controller.auth_controller import auth_controller
 from pweb_ui.controller.operator_controller import operator_controller
@@ -20,13 +21,20 @@ class PWebUIModule(PWebComponentRegister):
             "DEVELOPED_BY_LINK": PWebUIConfig.DEVELOPED_BY_LINK,
             "APP_VERSION": PWebUIConfig.APP_VERSION,
             "ENABLE_REGISTRATION": PWebUIConfig.ENABLE_REGISTRATION,
+            "LOGO_URL": PWebUIConfig.LOGO_URL,
+            "EXTRA_CSS": PWebUIConfig.EXTRA_CSS,
+            "EXTRA_JS": PWebUIConfig.EXTRA_JS,
         }
         PWebJinjaUtil.register_global_variable(pweb_app, variables)
 
-        navigation = []
         if PWebUIConfig.LEFT_NAVIGATION:
-            navigation = PWebUIConfig.LEFT_NAVIGATION
-        PWebJinjaUtil.register_global_variable(pweb_app, {"navigation": navigation})
+            PWebUISys.register_left_nav(pweb_app, PWebUIConfig.LEFT_NAVIGATION)
+
+        enable_default_left_nav = False
+        if PWebUIConfig.ENABLE_DEFAULT_LEFT_NAV:
+            enable_default_left_nav = True
+        PWebJinjaUtil.register_global_variable(pweb_app, {"enable_default_left_nav": enable_default_left_nav})
+        PWebUISys.PWEB_INSTANCE = pweb_app
 
     def app_details(self) -> PWebModuleDetails:
         return PWebModuleDetails(system_name="pweb-ui", display_name="PWeb UI Module")

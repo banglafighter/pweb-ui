@@ -38,7 +38,7 @@
 <script src="{{ url_for('pweb-ui.static', filename='js/lib/datepicker/tempus-jquery-provider.js') }}"></script>
 
 <script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.message.box.js') }}"></script>
-<script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.init.js') }}"></script>
+
 <script>
     PWeb.messageBox.parseAndShowMessage({{- util.pweb_flashed_messages|safe }})
 </script>
@@ -47,6 +47,7 @@
 {% for js_link in EXTRA_JS %}
     <script src="{{ js_link }}"></script>
 {% endfor %}
+<script src="{{ url_for('pweb-ui.static', filename='js/pweb/pweb.init.js') }}"></script>
 
 </body>
 </html>

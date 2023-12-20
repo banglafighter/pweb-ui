@@ -9,6 +9,11 @@ jQuery(document).ready(function () {
         content: 'Are you sure want to cancel?'
     });
 
+    let dateFormat = "dd/MM/yyyy"
+    if (PWeb.dateFormat) {
+        dateFormat = PWeb.dateFormat
+    }
+
     jQuery('.add-datepicker').tempusDominus({
         allowInputToggle: true,
         display: {
@@ -20,10 +25,14 @@ jQuery(document).ready(function () {
             },
         },
         localization: {
-            format: 'dd/MM/yyyy',
+            format: dateFormat,
         }
     });
 
+    let dateTimeFormat = "dd/MM/yyyy HH:mm"
+    if (PWeb.dateTimeFormat) {
+        dateTimeFormat = PWeb.dateTimeFormat
+    }
     jQuery('.add-date-time-picker').tempusDominus({
         allowInputToggle: true,
         display: {
@@ -35,7 +44,7 @@ jQuery(document).ready(function () {
             },
         },
         localization: {
-            format: 'dd/MM/yyyy HH:mm',
+            format: dateTimeFormat,
         }
     });
 
